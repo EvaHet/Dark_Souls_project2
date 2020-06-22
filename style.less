@@ -1,0 +1,124 @@
+@color:rgba(0,0,0,0.6);
+@size:20px;
+@background:#222;
+@text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+@base: #663333;
+@base2: red;
+@lighter1: lighten(spin(@base, 5), 10%);
+@lighter2: lighten(spin(@base, 10), 20%);
+@darker1: darken(spin(@base, -5), 10%);
+@darker2: darken(spin(@base, -10), 20%);
+@margin: 10px;
+.border-radius (@radius: 5px) { 
+    border-radius: @radius; 
+    -moz-border-radius: @radius; 
+    -webkit-border-radius: @radius; 
+}
+.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+    background-color: @start;
+    background-image: -webkit-linear-gradient(@origin, @start, @stop);
+    background-image: -moz-linear-gradient(@origin, @start, @stop);
+    background-image: -o-linear-gradient(@origin, @start, @stop);
+    background-image: -ms-linear-gradient(@origin, @start, @stop);
+    background-image: linear-gradient(@origin, @start, @stop);
+}
+.reflect (@length: 50%, @opacity: 0.2){
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
+}
+.text3d(@color) {
+  color: @color;
+  text-shadow: 1px 1px 0px darken(@color, 5%),
+               2px 2px 0px darken(@color, 10%),
+               3px 3px 0px darken(@color, 15%),
+               4px 4px 0px darken(@color, 20%),
+               4px 4px 2px #000;
+}
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+    box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+.transition (@prop: all, @time: 5s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+    -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+body {
+    background: @background;
+}
+  
+header { 
+ width: 1100px;
+ height: 150px;
+ display: block;
+ margin: 0 auto;
+ border-top: dotted 1px #000;
+ border-bottom: solid 2px #000;
+ .border-radius(20px);
+ margin-bottom: @margin;
+ .gradient(left, #663333, #333333);
+ .box-shadow(6px, 6px, 7px, 0.3);
+}
+
+main {
+	.reflect(20%, 0.2);
+	margin-bottom: (@margin*28);
+}
+
+
+ h2 {
+    color: @color;
+    text-shadow: @text-shadow;
+    margin-left: (@margin*44);
+    font-size:(@size*1.5);
+}
+
+h1 {
+.text3d(#353533);
+margin-left: (@margin*46);
+}
+
+span:hover {
+	opacity: 0;
+}
+
+img {
+    width: 500px;
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+    .transition(all, 0.5s, ease-in)   
+}
+img:hover {
+	opacity: 0;
+}
+
+img2 {
+	width: 50px;
+    height: 50px;
+}
+
+footer{
+.one   {color: @base;}
+.two   {color: @lighter1;}
+.three {color: @lighter2;}
+.four  {color: @darker1;}
+.five  {color: @darker2;}
+ margin-left: (@margin*21);
+ margin-bottom: (@margin*5);
+ font-size:(@size*3);
+  .reflect(20%, 0.2);
+  .transform(5deg, 0.5, 1deg, 0px);
+}
+
+
